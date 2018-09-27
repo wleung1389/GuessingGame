@@ -82,6 +82,7 @@ public class GuessingGame {
                     double aiGuess = max/2;
                     double Guesses = 1;
                     String gOrL = "";
+                    max /= 2;
                     while(gameRunning == true)
                     {
                         System.out.println(name + " , is your number " + aiGuess + "? Type g if your number is greater than the guess. Type l if your number is less than the guess. Type yes if it is your number.");
@@ -96,13 +97,15 @@ public class GuessingGame {
                             Guesses++;
                             if (gOrL.equals("g"))
                             {
-                                aiGuess = Math.floor(aiGuess + max / (Guesses + 1));
+                                max /= 2;
+                                aiGuess = Math.floor(aiGuess + max);
                             }
                             else
                             {
                                 if(gOrL.equals("l"))
                                 {
-                                    aiGuess = Math.floor(aiGuess - max / (Guesses + 1));
+                                    max /= 2;
+                                    aiGuess = Math.floor(aiGuess - max);
                                 }
                             }
                         }
